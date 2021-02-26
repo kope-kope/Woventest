@@ -8,3 +8,4 @@ jobs:
       - checkout
       - newman/newman-run:
           collection: ./deji.json
+          environment: ./Dejienv.json
