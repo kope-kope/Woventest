@@ -55,7 +55,27 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{  \r\n\r\n\"customer_reference\":\"{{custRef}}\",  \r\n\r\n\"name\":\"Oladokun Oluwatosin\", \r\n\r\n \"email\":\"tosin.oladokun@woven.finance\", \r\n\r\n\"mobile_number\":\"08012345678\",  \r\n\r\n\"expires_on\":\"{{tomorrow}}\", \r\n\r\n \"use_frequency\":\"5\", \r\n\r\n \"min_amount\":2000, \r\n\r\n \"max_amount\":12000,  \r\n\r\n\"callback_url\":\"http://requesturl.com\", \r\n\r\n \"meta_data\":{\"somedatakey\":\"somedatavalue\"}, \"destination_nuban\":\"\"  \r\n\r\n}",
+					"raw":{"customer_reference":"{{custRef}}",  
+						
+						"name":"Oladokun Oluwatosin", 
+						
+						 "email":"tosin.oladokun@woven.finance", 
+						
+						"mobile_number":"08012345678",  
+						
+						"expires_on":"{{tomorrow}}", 
+						
+						 "use_frequency":"5", 
+						
+						 "min_amount":2000, 
+						
+						 "max_amount":12000,  
+						
+						"callback_url":"http://requesturl.com", 
+						
+						 "meta_data":{"somedatakey":"somedatavalue"}, "destination_nuban":""  
+						
+						},
 					"options": {
 						"raw": {
 							"language": "json"
