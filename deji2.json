@@ -100,26 +100,6 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					"var min = 10000000000000;",
-					"var max = 99999999999999;",
-					"",
-					"var custRef = (Math.random() * (max - min) + min).round().toString();",
-					"",
-					"var payoutRef =  (Math.random() * (max - min) + min).round().toString();",
-					"",
-					"const moment = require('moment');",
-					"",
-					"pm.environment.set(\"tomorrow\", moment().add(1, \"day\").format(\"YYYY-MM-DD\"));",
-					"",
-					"var callback_url =  \"https://c949c50b6ff43675ec9f206211ea806e.m.pipedream.net\";",
-					"",
-					"var callback = callback_url.toString();",
-					"",
-					"pm.environment.set(\"custRef\", custRef);",
-					"",
-					"pm.environment.set(\"callback_url\", callback)",
-					"",
-					"pm.environment.set(\"payout_ref\", `payout_${payoutRef}`)",
 					""
 				]
 			}
