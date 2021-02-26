@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "77ffc993-3a34-4d31-8f8b-ae00bbc37196",
+		"name": "Deji's Folder",
+		"description": "## Test Create Virtual Accounts and Payouts.\n\nThese folder will test if a merchant can create a virtual account and make a payout after every hour.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create vNUBAN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request is successful with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an array\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_secret",
+						"value": "{{api_secret}}",
+						"type": "text"
+					},
+					{
+						"key": "requestId",
+						"value": "Tosin {{$timestamp}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n\r\n\"customer_reference\":\"{{custRef}}\",  \r\n\r\n\"name\":\"Oladokun Oluwatosin\", \r\n\r\n \"email\":\"tosin.oladokun@woven.finance\", \r\n\r\n\"mobile_number\":\"08012345678\",  \r\n\r\n\"expires_on\":\"{{tomorrow}}\", \r\n\r\n \"use_frequency\":\"5\", \r\n\r\n \"min_amount\":2000, \r\n\r\n \"max_amount\":12000,  \r\n\r\n\"callback_url\":\"http://requesturl.com\", \r\n\r\n \"meta_data\":{\"somedatakey\":\"somedatavalue\"}, \"destination_nuban\":\"\"  \r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/v2/api/vnubans/create_customer",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v2",
+						"api",
+						"vnubans",
+						"create_customer"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"var min = 10000000000000;",
+					"var max = 99999999999999;",
+					"",
+					"var custRef = (Math.random() * (max - min) + min).round().toString();",
+					"",
+					"var payoutRef =  (Math.random() * (max - min) + min).round().toString();",
+					"",
+					"const moment = require('moment');",
+					"",
+					"pm.environment.set(\"tomorrow\", moment().add(1, \"day\").format(\"YYYY-MM-DD\"));",
+					"",
+					"var callback_url =  \"https://c949c50b6ff43675ec9f206211ea806e.m.pipedream.net\";",
+					"",
+					"var callback = callback_url.toString();",
+					"",
+					"pm.environment.set(\"custRef\", custRef);",
+					"",
+					"pm.environment.set(\"callback_url\", callback)",
+					"",
+					"pm.environment.set(\"payout_ref\", `payout_${payoutRef}`)",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": ""
+		},
+		{
+			"key": "api_secret",
+			"value": ""
+		},
+		{
+			"key": "today",
+			"value": ""
+		},
+		{
+			"key": "custRef",
+			"value": ""
+		},
+		{
+			"key": "callback_url",
+			"value": ""
+		},
+		{
+			"key": "payout_ref",
+			"value": ""
+		}
+	]
+}
