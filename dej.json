@@ -20,7 +20,11 @@
 							"pm.test(\"Check that it returns an array\", function () {\r",
 							"  var jsonData = pm.response.json();\r",
 							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"});"
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json()\r",
+							"\r",
+							"console.log(jsonData)"
 						],
 						"type": "text/javascript"
 					}
@@ -112,32 +116,6 @@
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"key": "base_url",
-			"value": ""
-		},
-		{
-			"key": "api_secret",
-			"value": ""
-		},
-		{
-			"key": "today",
-			"value": ""
-		},
-		{
-			"key": "custRef",
-			"value": ""
-		},
-		{
-			"key": "callback_url",
-			"value": ""
-		},
-		{
-			"key": "payout_ref",
-			"value": ""
 		}
 	]
 }
