@@ -13,9 +13,23 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code name has string\", function () {\r",
-							"    pm.response.to.have.status(\"success\");\r",
+							"pm.test(\"Request is successful with a status code of 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check that it returns an array\", function () {\r",
+							"  var jsonData = pm.response.json();\r",
+							"  pm.expect(jsonData).to.be.an(\"object\");\r",
 							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -74,17 +88,18 @@
 					"var payoutRef =  (Math.random() * (max - min) + min).round().toString();",
 					"",
 					"const moment = require('moment');",
-					"pm.collectionVariables.set(\"today\", moment().add(1, \"day\").format(\"YYYY-MM-DD\"));",
+					"",
+					"pm.environment.set(\"tomorrow\", moment().add(1, \"day\").format(\"YYYY-MM-DD\"));",
 					"",
 					"var callback_url =  \"https://c949c50b6ff43675ec9f206211ea806e.m.pipedream.net\";",
 					"",
 					"var callback = callback_url.toString();",
 					"",
-					"pm.collectionVariables.set(\"custRef\", custRef);",
+					"pm.environment.set(\"custRef\", custRef);",
 					"",
-					"pm.collectionVariables.set(\"callback_url\", callback)",
+					"pm.environment.set(\"callback_url\", callback)",
 					"",
-					"pm.collectionVariables.set(\"payout_ref\", `payout_${payoutRef}`)",
+					"pm.environment.set(\"payout_ref\", `payout_${payoutRef}`)",
 					""
 				]
 			}
