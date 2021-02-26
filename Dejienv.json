@@ -1,0 +1,39 @@
+{
+	"id": "49ffa539-8a35-4555-869b-576c4fc84358",
+	"name": "Deji",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "https://api.woven.finance",
+			"enabled": true
+		},
+		{
+			"key": "api_secret",
+			"value": "vb_ls_bfac75fe54a952841971b6918d06aeb2659523dc92d6",
+			"enabled": true
+		},
+		{
+			"key": "tomorrow",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "custRef",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "callback_url",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "payout_ref",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-02-26T13:05:21.559Z",
+	"_postman_exported_using": "Postman/8.0.6"
+}
