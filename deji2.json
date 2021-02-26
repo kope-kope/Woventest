@@ -109,17 +109,17 @@
 					"",
 					"const moment = require('moment');",
 					"",
-					"pm.environmentVariables.set(\"tomorrow\", moment().add(1, \"day\").format(\"YYYY-MM-DD\"));",
+					"pm.environment.set(\"tomorrow\", moment().add(1, \"day\").format(\"YYYY-MM-DD\"));",
 					"",
 					"var callback_url =  \"https://c949c50b6ff43675ec9f206211ea806e.m.pipedream.net\";",
 					"",
 					"var callback = callback_url.toString();",
 					"",
-					"pm.environmentVariables.set(\"custRef\", custRef);",
+					"pm.environment.set(\"custRef\", custRef);",
 					"",
-					"pm.environmentVariables.set(\"callback_url\", callback)",
+					"pm.environment.set(\"callback_url\", callback)",
 					"",
-					"pm.environmentVariables.set(\"payout_ref\", `payout_${payoutRef}`)",
+					"pm.environment.set(\"payout_ref\", `payout_${payoutRef}`)",
 					""
 				]
 			}
