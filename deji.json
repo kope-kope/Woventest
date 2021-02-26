@@ -15,12 +15,7 @@
 						"exec": [
 							"pm.test(\"Request is successful with a status code of 200\", function () {\r",
 							"  pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Check that it returns an array\", function () {\r",
-							"  var jsonData = pm.response.json();\r",
-							"  pm.expect(jsonData).to.be.an(\"object\");\r",
-							"});"
+							"});\r"
 						],
 						"type": "text/javascript"
 					}
